@@ -30,10 +30,10 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.txtAPI = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearchInput = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtAPI = new System.Windows.Forms.TextBox();
             this.pnlSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
@@ -125,6 +125,30 @@
             this.pnlMain.Size = new System.Drawing.Size(1151, 651);
             this.pnlMain.TabIndex = 5;
             // 
+            // txtAPI
+            // 
+            this.txtAPI.Location = new System.Drawing.Point(305, 188);
+            this.txtAPI.Multiline = true;
+            this.txtAPI.Name = "txtAPI";
+            this.txtAPI.Size = new System.Drawing.Size(772, 369);
+            this.txtAPI.TabIndex = 4;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Location = new System.Drawing.Point(869, 100);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(178, 41);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
@@ -146,29 +170,6 @@
             this.txtSearchInput.Size = new System.Drawing.Size(395, 22);
             this.txtSearchInput.TabIndex = 0;
             this.txtSearchInput.Text = "https://ipwhois.app/json/193.198.57.183";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Location = new System.Drawing.Point(869, 100);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(178, 41);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // txtAPI
-            // 
-            this.txtAPI.Location = new System.Drawing.Point(305, 188);
-            this.txtAPI.Multiline = true;
-            this.txtAPI.Name = "txtAPI";
-            this.txtAPI.Size = new System.Drawing.Size(772, 369);
-            this.txtAPI.TabIndex = 4;
             // 
             // FrmSearch
             // 
