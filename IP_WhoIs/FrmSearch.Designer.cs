@@ -28,6 +28,8 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnNavSearch = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlTitleSearch = new System.Windows.Forms.Panel();
+            this.lblTitleSearch = new System.Windows.Forms.Label();
             this.txtTimezone = new System.Windows.Forms.TextBox();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtCountryCapital = new System.Windows.Forms.TextBox();
@@ -43,8 +45,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearchInput = new System.Windows.Forms.TextBox();
-            this.pnlTitleSearch = new System.Windows.Forms.Panel();
-            this.lblTitleSearch = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlMain.SuspendLayout();
@@ -105,6 +106,7 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.btnSave);
             this.pnlMain.Controls.Add(this.pnlTitleSearch);
             this.pnlMain.Controls.Add(this.txtTimezone);
             this.pnlMain.Controls.Add(this.txtCity);
@@ -128,6 +130,29 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1482, 732);
             this.pnlMain.TabIndex = 5;
+            // 
+            // pnlTitleSearch
+            // 
+            this.pnlTitleSearch.BackColor = System.Drawing.Color.LightSlateGray;
+            this.pnlTitleSearch.Controls.Add(this.lblTitleSearch);
+            this.pnlTitleSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitleSearch.ForeColor = System.Drawing.Color.White;
+            this.pnlTitleSearch.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitleSearch.Name = "pnlTitleSearch";
+            this.pnlTitleSearch.Size = new System.Drawing.Size(1482, 50);
+            this.pnlTitleSearch.TabIndex = 16;
+            // 
+            // lblTitleSearch
+            // 
+            this.lblTitleSearch.AutoSize = true;
+            this.lblTitleSearch.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTitleSearch.ForeColor = System.Drawing.Color.White;
+            this.lblTitleSearch.Location = new System.Drawing.Point(700, 9);
+            this.lblTitleSearch.Name = "lblTitleSearch";
+            this.lblTitleSearch.Size = new System.Drawing.Size(150, 33);
+            this.lblTitleSearch.TabIndex = 2;
+            this.lblTitleSearch.Text = "Search IP";
+            this.lblTitleSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtTimezone
             // 
@@ -299,28 +324,20 @@
             this.txtSearchInput.TabIndex = 0;
             this.txtSearchInput.Text = "https://ipwhois.app/json/193.198.57.183";
             // 
-            // pnlTitleSearch
+            // btnSave
             // 
-            this.pnlTitleSearch.BackColor = System.Drawing.Color.LightSlateGray;
-            this.pnlTitleSearch.Controls.Add(this.lblTitleSearch);
-            this.pnlTitleSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitleSearch.ForeColor = System.Drawing.Color.White;
-            this.pnlTitleSearch.Location = new System.Drawing.Point(0, 0);
-            this.pnlTitleSearch.Name = "pnlTitleSearch";
-            this.pnlTitleSearch.Size = new System.Drawing.Size(1482, 50);
-            this.pnlTitleSearch.TabIndex = 16;
-            // 
-            // lblTitleSearch
-            // 
-            this.lblTitleSearch.AutoSize = true;
-            this.lblTitleSearch.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTitleSearch.ForeColor = System.Drawing.Color.White;
-            this.lblTitleSearch.Location = new System.Drawing.Point(700, 9);
-            this.lblTitleSearch.Name = "lblTitleSearch";
-            this.lblTitleSearch.Size = new System.Drawing.Size(150, 33);
-            this.lblTitleSearch.TabIndex = 2;
-            this.lblTitleSearch.Text = "Search IP";
-            this.lblTitleSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGray;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(804, 528);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(178, 41);
+            this.btnSave.TabIndex = 17;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // FrmSearch
             // 
@@ -369,6 +386,7 @@
         private System.Windows.Forms.TextBox txtContinet;
         private System.Windows.Forms.Panel pnlTitleSearch;
         private System.Windows.Forms.Label lblTitleSearch;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
