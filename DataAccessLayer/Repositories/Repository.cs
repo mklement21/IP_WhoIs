@@ -1,12 +1,7 @@
 ﻿using DataAccessLayer.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories {
     public abstract class Repository<T> : IDisposable where T : class {
@@ -16,6 +11,24 @@ namespace DataAccessLayer.Repositories {
         public Repository(DBModelEntities context) {
             Context = context;
             Entities = Context.Set<T>();
+        }
+
+        public virtual IQueryable<T> GetAll() {
+            var query = from e in Entities select e;
+            return query;
+        }
+
+        public int SaveChanges() {
+            return Context.SaveChanges();
+        }
+
+        public virtual int Add(T entity, bool saveChanges = true) {
+            Entities.Add(entity);
+            if (saveChanges) {
+                return SaveChanges();
+            } else {
+                return 0;
+            }
         }
 
         public void Dispose() {
