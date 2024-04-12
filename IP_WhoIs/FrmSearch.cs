@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace IP_WhoIs {
     public partial class FrmSearch : Form {
+        private UcSaved ucSaved = new UcSaved();
+
         public FrmSearch() {
             InitializeComponent();
         }
@@ -44,6 +43,18 @@ namespace IP_WhoIs {
             txtCountryCapital.Text = (string)jsonData["country_capital"];
             txtCity.Text = (string)jsonData["city"];
             txtTimezone.Text = (string)jsonData["timezone"];
+        }
+
+        private void btnNavSaved_Click(object sender, EventArgs e) {
+            this.Controls.Remove(pnlMain);
+            ucSaved.Dock = DockStyle.Fill;
+            this.Controls.Add(ucSaved);
+        }
+
+        private void btnNavSearch_Click(object sender, EventArgs e) {
+            pnlMain.Dock = DockStyle.Fill;
+            this.Controls.Add(pnlMain);
+            this.Controls.Remove(ucSaved);
         }
     }
 }
