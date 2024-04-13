@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b3d70dbc74f4958b2fb1929aee1a401" Name="Diagram1" ZoomLevel="67">
-        <EntityTypeShape EntityType="DBModelModel.IPWhoIs" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="9cd44d82e41e48acabcb2d29af77ebac" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="DBModelModel.IpAdrese" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

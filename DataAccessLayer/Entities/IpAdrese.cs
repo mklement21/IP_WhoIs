@@ -12,7 +12,7 @@ namespace DataAccessLayer.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class IPWhoIs
+    public partial class IpAdrese
     {
         public string IP { get; set; }
         public Nullable<bool> success { get; set; }
@@ -41,7 +41,7 @@ namespace DataAccessLayer.Entities
         public string currency_code { get; set; }
         public string currency_symbol { get; set; }
         public Nullable<double> currency_rates { get; set; }
-        public byte[] currency_plural { get; set; }
+        public string currency_plural { get; set; }
         public Nullable<bool> favorite { get; set; }
     }
 }

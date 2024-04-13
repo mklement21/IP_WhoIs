@@ -2,18 +2,18 @@
 using System.Linq;
 
 namespace DataAccessLayer.Repositories {
-    public class IPRepository : Repository<IPWhoIs> {
+    public class IPRepository : Repository<IpAdrese> {
         public IPRepository() : base(new DBModelEntities()) {
         }
 
-        public override IQueryable<IPWhoIs> GetAll() {
+        public override IQueryable<IpAdrese> GetAll() {
             var query = from countries in Entities
                         select countries;
             return query;
         }
 
-        public override int Add(IPWhoIs entity, bool saveChanges = true) {
-            var newIP = new IPWhoIs {
+        public override int Add(IpAdrese entity, bool saveChanges = true) {
+            var newIP = new IpAdrese {
                 IP = entity.IP,
                 success = entity.success,
                 type = entity.type,

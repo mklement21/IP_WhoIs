@@ -25,6 +25,6 @@ namespace DataAccessLayer.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<IPWhoIs> IPWhoIs { get; set; }
+        public virtual DbSet<IpAdrese> IpAdrese { get; set; }
     }
 }

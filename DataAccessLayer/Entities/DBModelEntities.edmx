@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DBModelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="IPWhoIs">
+        <EntityType Name="IpAdrese">
           <Key>
             <PropertyRef Name="IP" />
           </Key>
@@ -36,18 +36,18 @@
           <Property Name="currency_code" Type="char" MaxLength="3" />
           <Property Name="currency_symbol" Type="varchar" MaxLength="5" />
           <Property Name="currency_rates" Type="float" />
-          <Property Name="currency_plural" Type="varbinary" MaxLength="30" />
+          <Property Name="currency_plural" Type="varchar" MaxLength="25" />
           <Property Name="favorite" Type="bit" />
         </EntityType>
         <EntityContainer Name="DBModelModelStoreContainer">
-          <EntitySet Name="IPWhoIs" EntityType="Self.IPWhoIs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IpAdrese" EntityType="Self.IpAdrese" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="IPWhoIs">
+        <EntityType Name="IpAdrese">
           <Key>
             <PropertyRef Name="IP" />
           </Key>
@@ -78,11 +78,11 @@
           <Property Name="currency_code" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="currency_symbol" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="currency_rates" Type="Double" />
-          <Property Name="currency_plural" Type="Binary" MaxLength="30" FixedLength="false" />
+          <Property Name="currency_plural" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="favorite" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="DBModelEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="IPWhoIs" EntityType="Self.IPWhoIs" />
+          <EntitySet Name="IpAdrese" EntityType="Self.IpAdrese" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -90,9 +90,9 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBModelModelStoreContainer" CdmEntityContainer="DBModelEntities">
-          <EntitySetMapping Name="IPWhoIs">
-            <EntityTypeMapping TypeName="DBModelModel.IPWhoIs">
-              <MappingFragment StoreEntitySet="IPWhoIs">
+          <EntitySetMapping Name="IpAdrese">
+            <EntityTypeMapping TypeName="DBModelModel.IpAdrese">
+              <MappingFragment StoreEntitySet="IpAdrese">
                 <ScalarProperty Name="IP" ColumnName="IP" />
                 <ScalarProperty Name="success" ColumnName="success" />
                 <ScalarProperty Name="type" ColumnName="type" />
