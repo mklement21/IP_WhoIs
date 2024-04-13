@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Entities;
 using Exceptions;
+using System.Data.Entity;
 using System.Linq;
 
 namespace DataAccessLayer.Repositories {
@@ -8,16 +9,16 @@ namespace DataAccessLayer.Repositories {
         }
 
         public override IQueryable<IpAdrese> GetAll() {
-            var query = from countries in Entities
+            var query = from countries in Entities.OrderBy( c => c.country)
                         select countries;
             return query;
         }
 
         public override int Add(IpAdrese entity, bool saveChanges = true) {
-            var existingIP = Entities.FirstOrDefault(a => a.IP == entity.IP);
+            var existingIP = Entities.Any(a => a.IP == entity.IP);
 
-            if ( existingIP == null) {
-                throw new AddressException("IP address already exists.");
+            if ( existingIP ) {
+                throw new AddressException("IP address already exsists.");
             }
 
             var newIP = new IpAdrese {
@@ -52,7 +53,7 @@ namespace DataAccessLayer.Repositories {
                 favorite = entity.favorite,
             };
 
-            if (saveChanges && existingIP == null) {
+            if (saveChanges) {
                 Entities.Add(newIP);
                 return SaveChanges();
             } else {

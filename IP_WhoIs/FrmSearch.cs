@@ -102,18 +102,17 @@ namespace IP_WhoIs {
                 currency_plural = (string)jsonData["currency_plural"],
                 favorite = false,
             };
-
+            
             try {
                 bool result = iPService.AddAddress(newAddress);
 
                 if (result) {
                     MessageBox.Show("Data saved successfully.");
-                } else {
-                    MessageBox.Show("Data not saved.");
                 }
             } catch (AddressException ex) {
                 MessageBox.Show(ex.ExMessage);
-            } 
+            }
+
         }
     }
 }

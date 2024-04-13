@@ -33,11 +33,11 @@
             // dgvSavedAddresses
             // 
             this.dgvSavedAddresses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSavedAddresses.Location = new System.Drawing.Point(397, 155);
+            this.dgvSavedAddresses.Location = new System.Drawing.Point(309, 121);
             this.dgvSavedAddresses.Name = "dgvSavedAddresses";
             this.dgvSavedAddresses.RowHeadersWidth = 51;
             this.dgvSavedAddresses.RowTemplate.Height = 24;
-            this.dgvSavedAddresses.Size = new System.Drawing.Size(1041, 267);
+            this.dgvSavedAddresses.Size = new System.Drawing.Size(1129, 301);
             this.dgvSavedAddresses.TabIndex = 1;
             // 
             // lblTitleSaved
