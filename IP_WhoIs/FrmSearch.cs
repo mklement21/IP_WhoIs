@@ -12,6 +12,7 @@ using DataAccessLayer.Repositories;
 using BusinessLogicLayer;
 using System.Net;
 using System.Drawing;
+using Exceptions;
 
 namespace IP_WhoIs {
     public partial class FrmSearch : Form {
@@ -102,13 +103,17 @@ namespace IP_WhoIs {
                 favorite = false,
             };
 
-            bool result = iPService.AddAddress(newAddress);
+            try {
+                bool result = iPService.AddAddress(newAddress);
 
-            if (result) {
-                MessageBox.Show("Data saved successfully.");
-            } else {
-                MessageBox.Show("Data not saved.");
-            }
+                if (result) {
+                    MessageBox.Show("Data saved successfully.");
+                } else {
+                    MessageBox.Show("Data not saved.");
+                }
+            } catch (AddressException ex) {
+                MessageBox.Show(ex.ExMessage);
+            } 
         }
     }
 }

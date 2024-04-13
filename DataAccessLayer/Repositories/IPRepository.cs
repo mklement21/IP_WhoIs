@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Entities;
+using Exceptions;
 using System.Linq;
 
 namespace DataAccessLayer.Repositories {
@@ -13,6 +14,12 @@ namespace DataAccessLayer.Repositories {
         }
 
         public override int Add(IpAdrese entity, bool saveChanges = true) {
+            var existingIP = Entities.FirstOrDefault(a => a.IP == entity.IP);
+
+            if ( existingIP == null) {
+                throw new AddressException("IP address already exists.");
+            }
+
             var newIP = new IpAdrese {
                 IP = entity.IP,
                 success = entity.success,
@@ -45,9 +52,8 @@ namespace DataAccessLayer.Repositories {
                 favorite = entity.favorite,
             };
 
-            Entities.Add(newIP);
-
-            if (saveChanges) {
+            if (saveChanges && existingIP == null) {
+                Entities.Add(newIP);
                 return SaveChanges();
             } else {
                 return 0;

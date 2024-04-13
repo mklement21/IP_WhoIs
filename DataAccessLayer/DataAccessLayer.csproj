@@ -124,7 +124,12 @@
       <LastGenOutput>DBModelEntities.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Exceptions\Exceptions.csproj">
+      <Project>{C4DECE50-8F89-436B-A605-E2B6598D3414}</Project>
+      <Name>Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Entities\DBModelEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
