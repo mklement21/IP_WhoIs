@@ -45,8 +45,7 @@
         <Label Content="Timezone :" Grid.Column="0" Grid.Row="6" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
         <TextBox x:Name="txtTimezone" Grid.Column="1" Grid.Row="6" Margin="2" IsReadOnly="True"/>
 
-        <Button x:Name="btnSaveAddress" Content="Save" Width="Auto" Height="25"  Margin="20,0,5,0" Grid.Column="3" Grid.Row="7" Click="btnSaveAddress_Click"></Button>
-
-    </Grid>          
+            <Button x:Name="btnSaveAddress" Content="Save" Width="Auto" Height="25"  Margin="20,0,5,0" Grid.Column="3" Grid.Row="7" Click="btnSaveAddress_Click"></Button>
+        </Grid>          
     </DockPanel>
 </UserControl>

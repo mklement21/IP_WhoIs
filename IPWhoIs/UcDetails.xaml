@@ -5,133 +5,132 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IPWhoIs"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel x:Name="dpDetailsAddress">
-        <Label Content="Details" Background="#FFCAE2E2" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,25"></Label>
+             d:DesignHeight="600" d:DesignWidth="900">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <DockPanel x:Name="dpDetailsAddress">
+            <Label Content="Details" Background="#FFCAE2E2" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,25"></Label>
+            <WebBrowser x:Name="webBrowser" Height="480" Width="640" HorizontalAlignment="Center" Margin="20,0,0,0" />
+            
+            <StackPanel>
+                <Grid Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                
+                <Label Content="IP :" Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtIP" Grid.Column="1" Grid.Row="0" Margin="2" Width="400" BorderThickness="0.5"/>
 
+                <Label Content="Success :" Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtSuccess" Grid.Column="1" Grid.Row="1" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Type :" Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtType" Grid.Column="1" Grid.Row="2" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Continent :" Grid.Column="0" Grid.Row="3" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtContinent" Grid.Column="1" Grid.Row="3" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Continent code:" Grid.Column="0" Grid.Row="4" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtContinentCode" Grid.Column="1" Grid.Row="4" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Country :" Grid.Column="0" Grid.Row="5" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCountry" Grid.Column="1" Grid.Row="5" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Country code :" Grid.Column="0" Grid.Row="6" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCountryCode" Grid.Column="1" Grid.Row="6" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Country capital :" Grid.Column="0" Grid.Row="7" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCountryCapital" Grid.Column="1" Grid.Row="7" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Country phone :" Grid.Column="0" Grid.Row="8" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCountryPhone" Grid.Column="1" Grid.Row="8" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Country neighbours :" Grid.Column="0" Grid.Row="9" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCountryNeighbours" Grid.Column="1" Grid.Row="9" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Region :" Grid.Column="0" Grid.Row="10" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtRegin" Grid.Column="1" Grid.Row="10" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="City :" Grid.Column="0" Grid.Row="11" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCity" Grid.Column="1" Grid.Row="11" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Latitude :" Grid.Column="0" Grid.Row="12" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtLatitude" Grid.Column="1" Grid.Row="12" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Longitude :" Grid.Column="0" Grid.Row="13" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtLongitude" Grid.Column="1" Grid.Row="13" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Asn :" Grid.Column="0" Grid.Row="14" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtAsn" Grid.Column="1" Grid.Row="14" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Org :" Grid.Column="0" Grid.Row="15" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtOrg" Grid.Column="1" Grid.Row="15" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Isp :" Grid.Column="0" Grid.Row="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtIsp" Grid.Column="1" Grid.Row="16" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Timezone :" Grid.Column="0" Grid.Row="17" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtTimezone" Grid.Column="1" Grid.Row="17" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Timezone name:" Grid.Column="0" Grid.Row="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtTimezoneName" Grid.Column="1" Grid.Row="18" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Timezone dstOffset :" Grid.Column="0" Grid.Row="19" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtTimezone_dstOffset" Grid.Column="1" Grid.Row="19" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Timezone gmtOffset :" Grid.Column="0" Grid.Row="20" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtTimezone_gmtOffset" Grid.Column="1" Grid.Row="20" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Currency :" Grid.Column="0" Grid.Row="21" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCurrency" Grid.Column="1" Grid.Row="21" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Currency code :" Grid.Column="0" Grid.Row="22" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCurrencyCode" Grid.Column="1" Grid.Row="22" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Currency symbol:" Grid.Column="0" Grid.Row="23" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCurrencySymbol" Grid.Column="1" Grid.Row="23" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Currency rates:" Grid.Column="0" Grid.Row="24" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCurrencyRates" Grid.Column="1" Grid.Row="24" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Currency plural :" Grid.Column="0" Grid.Row="25" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtCurrencyPlural" Grid.Column="1" Grid.Row="25" Margin="2" IsReadOnly="True"/>
+
+                <Label Content="Favorite :" Grid.Column="0" Grid.Row="26" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBox x:Name="txtFavorite" Grid.Column="1" Grid.Row="26" Margin="2" IsReadOnly="True"/>
+            </Grid>
         
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <Grid Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="300*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-                
-            <Label Content="IP :" Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center"/>
-            <TextBox x:Name="txtIP" Grid.Column="1" Grid.Row="0" Margin="2" Width="400" BorderThickness="0.5"/>
-
-            <Label Content="Success :" Grid.Column="0" Grid.Row="1" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtSuccess" Grid.Column="1" Grid.Row="1" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Type :" Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtType" Grid.Column="1" Grid.Row="2" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Continent :" Grid.Column="0" Grid.Row="3" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtContinent" Grid.Column="1" Grid.Row="3" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Continent code:" Grid.Column="0" Grid.Row="4" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtContinentCode" Grid.Column="1" Grid.Row="4" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Country :" Grid.Column="0" Grid.Row="5" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCountry" Grid.Column="1" Grid.Row="5" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Country code :" Grid.Column="0" Grid.Row="6" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCountryCode" Grid.Column="1" Grid.Row="6" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Country capital :" Grid.Column="0" Grid.Row="7" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCountryCapital" Grid.Column="1" Grid.Row="7" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Country phone :" Grid.Column="0" Grid.Row="8" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCountryPhone" Grid.Column="1" Grid.Row="8" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Country neighbours :" Grid.Column="0" Grid.Row="9" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCountryNeighbours" Grid.Column="1" Grid.Row="9" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Region :" Grid.Column="0" Grid.Row="10" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtRegin" Grid.Column="1" Grid.Row="10" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="City :" Grid.Column="0" Grid.Row="11" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCity" Grid.Column="1" Grid.Row="11" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Latitude :" Grid.Column="0" Grid.Row="12" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtLatitude" Grid.Column="1" Grid.Row="12" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Longitude :" Grid.Column="0" Grid.Row="13" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtLongitude" Grid.Column="1" Grid.Row="13" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Asn :" Grid.Column="0" Grid.Row="14" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtAsn" Grid.Column="1" Grid.Row="14" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Org :" Grid.Column="0" Grid.Row="15" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtOrg" Grid.Column="1" Grid.Row="15" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Isp :" Grid.Column="0" Grid.Row="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtIsp" Grid.Column="1" Grid.Row="16" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Timezone :" Grid.Column="0" Grid.Row="17" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtTimezone" Grid.Column="1" Grid.Row="17" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Timezone name:" Grid.Column="0" Grid.Row="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtTimezoneName" Grid.Column="1" Grid.Row="18" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Timezone dstOffset :" Grid.Column="0" Grid.Row="19" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtTimezone_dstOffset" Grid.Column="1" Grid.Row="19" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Timezone gmtOffset :" Grid.Column="0" Grid.Row="20" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtTimezone_gmtOffset" Grid.Column="1" Grid.Row="20" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Currency :" Grid.Column="0" Grid.Row="21" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCurrency" Grid.Column="1" Grid.Row="21" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Currency code :" Grid.Column="0" Grid.Row="22" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCurrencyCode" Grid.Column="1" Grid.Row="22" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Currency symbol:" Grid.Column="0" Grid.Row="23" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCurrencySymbol" Grid.Column="1" Grid.Row="23" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Currency rates:" Grid.Column="0" Grid.Row="24" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCurrencyRates" Grid.Column="1" Grid.Row="24" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Currency plural :" Grid.Column="0" Grid.Row="25" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtCurrencyPlural" Grid.Column="1" Grid.Row="25" Margin="2" IsReadOnly="True"/>
-
-            <Label Content="Favorite :" Grid.Column="0" Grid.Row="26" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
-            <TextBox x:Name="txtFavorite" Grid.Column="1" Grid.Row="26" Margin="2" IsReadOnly="True"/>
-        </Grid>
-        </ScrollViewer>
-
-        <StackPanel>
-            <Image x:Name="imgFlag" Height="200" Width="200"/>
-        </StackPanel>
-    </DockPanel>
+            </StackPanel>
+        </DockPanel>
+    </ScrollViewer>
 </UserControl>

@@ -1,35 +1,31 @@
 ﻿using DataAccessLayer.Entities;
-using FFImageLoading.Svg.Forms;
 using System;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using SVGImage.SVG;
 using System.Net.Http;
 using System.Windows;
-using SkiaSharp;
-using System.IO;
-using System.Net;
-using System.Windows.Media;
-using System.Windows.Interop;
-using System.Drawing;
 
 namespace IPWhoIs {
-    /// <summary>
-    /// Interaction logic for UcDetails.xaml
-    /// </summary>
     public partial class UcDetails : UserControl {
         private IpAdrese Address = new IpAdrese();
         public UcDetails(IpAdrese  selectedAddress) {
             InitializeComponent();
             Address = selectedAddress;
-            LoadFlag();
             LoadData();
+            LoadFlagFromUrl();
         }
 
-        private void LoadFlag() {
+        public async void LoadFlagFromUrl() {
             string imageUrl = Address.country_flag;
-        }
+            try {
+                HttpClient httpClient = new HttpClient();
 
+                string svgData = await httpClient.GetStringAsync(imageUrl);
+
+                webBrowser.NavigateToString(svgData);
+            } catch (Exception ex) {
+                MessageBox.Show($"Error loading SVG: {ex.Message}");
+            }
+        }
 
         private void LoadData() {
             txtIP.Text = Address.IP;
