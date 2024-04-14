@@ -31,5 +31,12 @@ namespace IPWhoIs {
             List<IpAdrese> iPAddresses = iPService.GetAddresses().ToList();
             dgSavedAddresses.ItemsSource = iPAddresses;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            if (dgSavedAddresses.SelectedItem is IpAdrese selectedAddress) {
+                UcDetails ucDetails = new UcDetails(selectedAddress);
+                this.Content = ucDetails;
+            }
+        }
     }
 }
