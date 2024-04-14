@@ -1,31 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Net.Http;
-using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
+﻿using BusinessLogicLayer;
 using DataAccessLayer.Entities;
-using DataAccessLayer.Repositories;
-using BusinessLogicLayer;
-using System.Net;
-using System.Drawing;
 using Exceptions;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-namespace IP_WhoIs {
-    public partial class FrmSearch : Form {
-        private UcSaved ucSaved = new UcSaved();
+namespace IPWhoIs {
+    /// <summary>
+    /// Interaction logic for UcSearch.xaml
+    /// </summary>
+    public partial class UcSearch : UserControl {
         private JObject jsonData;
         private IPService iPService = new IPService();
-
-        public FrmSearch() {
+        public UcSearch() {
             InitializeComponent();
         }
 
-        private async void btnSearch_Click(object sender, EventArgs e) {
-            string urlAPI = txtSearchInput.Text.ToString();
+        private async void btnSearchIP_Click(object sender, RoutedEventArgs e) {
+            string urlAPI = txtSearch.Text.ToString();
 
             try {
                 using (HttpClient httpClient = new HttpClient()) {
@@ -45,29 +50,12 @@ namespace IP_WhoIs {
         }
 
         private void DisplayData(JObject jsonData) {
-            txtIPAddress.Text = (string)jsonData["ip"];
-            txtContinet.Text = (string)jsonData["continent"];
+            txtSearch.Text = (string)jsonData["ip"];
+            txtContinent.Text = (string)jsonData["continent"];
             txtContinentCode.Text = (string)jsonData["continent_code"];
             txtCountryCapital.Text = (string)jsonData["country_capital"];
             txtCity.Text = (string)jsonData["city"];
             txtTimezone.Text = (string)jsonData["timezone"];
-        }
-
-        private void btnNavSaved_Click(object sender, EventArgs e) {
-            this.Controls.Remove(pnlMain);
-            ucSaved.Dock = DockStyle.Fill;
-            this.Controls.Add(ucSaved);
-            ucSaved.RefreshData();
-        }
-
-        private void btnNavSearch_Click(object sender, EventArgs e) {
-            pnlMain.Dock = DockStyle.Fill;
-            this.Controls.Add(pnlMain);
-            this.Controls.Remove(ucSaved);
-        }
-
-        private void btnSave_Click(object sender, EventArgs e) {
-            ImportIP(jsonData);
         }
 
         private void ImportIP(JObject jsonData) {
@@ -102,7 +90,7 @@ namespace IP_WhoIs {
                 currency_plural = (string)jsonData["currency_plural"],
                 favorite = false,
             };
-            
+
             try {
                 bool result = iPService.AddAddress(newAddress);
 
@@ -113,6 +101,10 @@ namespace IP_WhoIs {
                 MessageBox.Show(ex.ExMessage);
             }
 
+        }
+
+        private void btnSaveAddress_Click(object sender, RoutedEventArgs e) {
+            ImportIP(jsonData);
         }
     }
 }
