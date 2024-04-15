@@ -23,5 +23,14 @@ namespace BusinessLogicLayer {
                 return repo.GetAll().ToList();
             }
         }
+
+        public bool RemoveAddress(IpAdrese address) {
+            bool isSuccessful = false;
+            using (var repo = new IPRepository()) {
+                int affectedRows = repo.Remove(address);
+                isSuccessful = affectedRows > 0;
+            }
+            return isSuccessful;
+        }
     }
 }

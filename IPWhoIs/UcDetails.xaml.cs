@@ -3,10 +3,12 @@ using System;
 using System.Windows.Controls;
 using System.Net.Http;
 using System.Windows;
+using BusinessLogicLayer;
 
 namespace IPWhoIs {
     public partial class UcDetails : UserControl {
         private IpAdrese Address = new IpAdrese();
+        private IPService IPService = new IPService();
         public UcDetails(IpAdrese  selectedAddress) {
             InitializeComponent();
             Address = selectedAddress;
@@ -55,6 +57,21 @@ namespace IPWhoIs {
             txtCurrencyRates.Text = Address.currency_rates.ToString();
             txtCurrencyPlural.Text = Address.currency_plural;
             txtFavorite.Text = Address.favorite.ToString();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e) {
+
+            if (Address != null) {
+                var result = MessageBox.Show($"Are you sure you want to delete the address {Address.IP}?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes) {
+                    IPService.RemoveAddress(Address);
+                    MessageBox.Show($"Successfully removed address {Address.IP}");
+
+                    UcSaved ucSaved = new UcSaved();
+                    this.Content = ucSaved;
+                } 
+            }
         }
     }
 }
