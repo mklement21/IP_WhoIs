@@ -1,5 +1,6 @@
 ﻿using BusinessLogicLayer;
 using DataAccessLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -11,6 +12,14 @@ namespace IPWhoIs {
         public UcSaved() {
             InitializeComponent();
             LoadData();
+            LoadCombo();
+        }
+
+        private void LoadCombo() {
+            cbSort.SelectedItem = "Select";
+            cbSort.Items.Add("Select");
+            cbSort.Items.Add("Sort by Country ascending");
+            cbSort.Items.Add("Sort by Country descending");
         }
 
         private void LoadData() {
@@ -29,6 +38,26 @@ namespace IPWhoIs {
             string filter = txtFilter.Text.ToString();
             List<IpAdrese> filteredAddresses = iPService.GetAddressByCountry(filter);
             dgSavedAddresses.ItemsSource = filteredAddresses.ToList(); 
+        }
+
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var selected = cbSort.SelectedItem;
+
+            if (selected != null) {
+                switch (selected) {
+                    case "Sort by Country ascending":
+                        dgSavedAddresses.ItemsSource = iPService.GetBySortAsc().ToList();
+                        break;
+
+                    case "Sort by Country descending":
+                        dgSavedAddresses.ItemsSource = iPService.GetBySortDesc().ToList();
+                        break;
+
+                    default:
+                        LoadData();
+                        break;
+                }
+            }
         }
     }
 }

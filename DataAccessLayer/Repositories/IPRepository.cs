@@ -10,8 +10,7 @@ namespace DataAccessLayer.Repositories {
         }
 
         public override IQueryable<IpAdrese> GetAll() {
-            var query = from countries in Entities.OrderBy( c => c.country)
-                        select countries;
+            var query = Entities.OrderBy(c => c.favorite == true ? 0 : 1).ThenBy(c => c.country);
             return query;
         }
 
@@ -63,9 +62,20 @@ namespace DataAccessLayer.Repositories {
         }
 
         public IQueryable<IpAdrese> GetAddressFilter(string country) {
-            var query = from countries in Entities.Where( c => c.country.StartsWith(country))
+            var query = from countries in Entities.OrderBy(c => c.favorite == true).Where( c => c.country.StartsWith(country))
                         select countries;
             return query;
         }
+
+        public IQueryable<IpAdrese> GetByCountryAsc() {
+            var query = Entities.Select(c => c).OrderBy(c => c.favorite == true ? 0 : 1).ThenBy(c => c.country);
+            return query;
+        }
+
+        public IQueryable<IpAdrese> GetByCountryDesc() {
+            var query = Entities.Select(c => c).OrderByDescending(c => c.favorite == true ? 0 : 1).ThenBy(c => c.country); ;
+            return query;
+        }
+
     }
 }

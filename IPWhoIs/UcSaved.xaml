@@ -10,7 +10,7 @@
         <Label Content="Saved IPs" Background="PowderBlue" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10"></Label>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"   DockPanel.Dock="Top" Margin="25,70,25,0" >
-            <ComboBox x:Name="cbSort"  Width="200" Height="23" SelectedIndex="0" Text="Select" Margin="25,5,25,5" ></ComboBox>
+            <ComboBox x:Name="cbSort"  Width="200" Height="23" SelectedIndex="0" Text="Select" Margin="25,5,25,5" SelectionChanged="cbSort_SelectionChanged" ></ComboBox>
             <Border BorderBrush="Black" BorderThickness="0.5" CornerRadius="10" Margin="25,5,0,5">
                 <TextBox x:Name="txtFilter" Width="200" Height="23" Tag="Filter" BorderThickness="0" Background="Transparent" Margin="2" TextChanged="txtFilter_TextChanged"/>
             </Border>

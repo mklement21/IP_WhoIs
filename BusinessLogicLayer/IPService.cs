@@ -38,5 +38,17 @@ namespace BusinessLogicLayer {
                 return repo.GetAddressFilter(country).ToList();
             }
         }
+
+        public List<IpAdrese> GetBySortAsc() {
+            using (var repo = new IPRepository()) {
+                return repo.GetByCountryAsc().ToList();
+            }
+        }
+
+        public List<IpAdrese> GetBySortDesc() {
+            using (var repo = new IPRepository()) {
+                return repo.GetByCountryDesc().ToList();
+            }
+        }
     }
 }
