@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IPWhoIs"
         mc:Ignorable="d"
-        Title="IP WHO IS" Height="450" Width="800">
+        Title="IP WHO IS" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <DockPanel>
-        <Grid x:Name="navGrid" DockPanel.Dock="Left" Width="150" Background="#FFE5F7F7">
+        <Grid x:Name="navGrid" DockPanel.Dock="Left" Width="150" Background="PowderBlue">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -15,15 +16,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name="lblNavigation" Content="Navigation" FontWeight="Bold" HorizontalContentAlignment="Center" Background="#FFAFD2CE"  Height="25" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="0,0,1,0"></Label>
+            <Label x:Name="lblNavigation" Content="Navigation" FontWeight="Bold" HorizontalContentAlignment="Center" Background="SteelBlue"  Height="25" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="0,0,1,0"></Label>
 
-            <Button x:Name="btnSearch" Content="Search" Height="25" Background="#FFCAE2E2" BorderBrush="LightGray" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="1" Click="btnSearch_Click"/>
-            <Button x:Name="btnSaved" Content="Saved" Height="25" Background="#FFCAE2E2" BorderBrush="LightGray" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2" Click="btnSaved_Click"/>
+            <Button x:Name="btnSearch" Content="Search" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="1" Click="btnSearch_Click"/>
+            <Button x:Name="btnSaved" Content="Saved" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2" Click="btnSaved_Click"/>
         </Grid>
-        <StackPanel x:Name="stackPanel" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Background="#FFAFD2CE" Height="25">
+        <StackPanel x:Name="stackPanel" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Background="SteelBlue" Height="25">
             <Label x:Name="lblSearch"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <ContentControl x:Name="contentPanel" Background="#FFA38B8B">
+        <ContentControl x:Name="contentPanel" Background="LightGray" >
         </ContentControl>
     </DockPanel>
 </Window>

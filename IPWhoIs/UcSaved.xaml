@@ -7,9 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel x:Name="dpSavedAddress">
-        <Label Content="Saved IPs" Background="#FFCAE2E2" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10"></Label>
+        <Label Content="Saved IPs" Background="PowderBlue" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10"></Label>
 
-        <DataGrid x:Name="dgSavedAddresses" AlternatingRowBackground="AliceBlue" Margin="25,0,25,0" AutoGenerateColumns="False" Height="385" RenderTransformOrigin="0.501,0.393">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"   DockPanel.Dock="Top" Margin="25,70,25,0" >
+            <ComboBox x:Name="cbSort"  Width="200" Height="23" SelectedIndex="0" Text="Select" Margin="25,5,25,5" ></ComboBox>
+            <Border BorderBrush="Black" BorderThickness="0.5" CornerRadius="10" Margin="25,5,0,5">
+                <TextBox x:Name="txtFilter" Width="200" Height="23" Tag="Filter" BorderThickness="0" Background="Transparent" Margin="2"/>
+            </Border>
+        </StackPanel>
+
+
+        <DataGrid x:Name="dgSavedAddresses" AlternatingRowBackground="AliceBlue" Margin="25,0,25,0" DockPanel.Dock="Top" AutoGenerateColumns="False" Height="500" RenderTransformOrigin="0.501,0.393">
             <DataGrid.Columns >
                 <DataGridTextColumn Width="10*" Header="IP address" Binding="{Binding IP}" />
                 <DataGridTextColumn Width="10*" Header="Continent" Binding="{Binding continent}" />
@@ -24,7 +32,7 @@
                 <DataGridTemplateColumn Width="10*" Header="Details">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Details" Click="Button_Click"  />
+                            <Button Content="Details" Click="Button_Click"  Width="70" Height="30" Margin="2" Background="PowderBlue"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel x:Name="dpSearchAddress">
-        <Label Content="Search IP" Background="#FFCAE2E2" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,25"></Label>
+        <Label Content="Search IP" Background="PowderBlue" FontWeight="DemiBold" HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,25"></Label>
 
         <Grid Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="250" >
         <Grid.ColumnDefinitions>
@@ -28,7 +28,7 @@
 
         <Label Content="Search IP :" Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center"/>
         <TextBox x:Name="txtSearch" Text="https://ipwhois.app/json/193.198.57.183" Grid.Column="1" Grid.Row="0" Margin="2" Width="400" BorderThickness="0.5"/>
-        <Button x:Name="btnSearchIP" Content="Search" Width="Auto" Height="25"  Margin="20,0,5,0" Grid.Column="3" Grid.Row="0" Click="btnSearchIP_Click"></Button>
+            <Button x:Name="btnSearchIP" Content="Search"  Width="70" Height="30"  Background="PowderBlue"  Margin="20,0,2,0" Grid.Column="3" Grid.Row="0" Click="btnSearchIP_Click"></Button>
 
         <Label Content="Continent :" Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
         <TextBox x:Name="txtContinent" Grid.Column="1" Grid.Row="2" Margin="2" IsReadOnly="True"/>
@@ -45,7 +45,7 @@
         <Label Content="Timezone :" Grid.Column="0" Grid.Row="6" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>
         <TextBox x:Name="txtTimezone" Grid.Column="1" Grid.Row="6" Margin="2" IsReadOnly="True"/>
 
-            <Button x:Name="btnSaveAddress" Content="Save" Width="Auto" Height="25"  Margin="20,0,5,0" Grid.Column="3" Grid.Row="7" Click="btnSaveAddress_Click"></Button>
+            <Button x:Name="btnSaveAddress" Content="Save" Width="70" Height="30" Background="PowderBlue"  Margin="20,0,2,0" Grid.Column="3" Grid.Row="7" Click="btnSaveAddress_Click"></Button>
         </Grid>          
     </DockPanel>
 </UserControl>
