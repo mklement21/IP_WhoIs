@@ -24,5 +24,11 @@ namespace IPWhoIs {
                 this.Content = ucDetails;
             }
         }
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e) {
+            string filter = txtFilter.Text.ToString();
+            List<IpAdrese> filteredAddresses = iPService.GetAddressByCountry(filter);
+            dgSavedAddresses.ItemsSource = filteredAddresses.ToList(); 
+        }
     }
 }

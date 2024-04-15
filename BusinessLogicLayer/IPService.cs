@@ -32,5 +32,11 @@ namespace BusinessLogicLayer {
             }
             return isSuccessful;
         }
+
+        public List<IpAdrese> GetAddressByCountry(string country) {
+            using (var repo = new IPRepository()) {
+                return repo.GetAddressFilter(country).ToList();
+            }
+        }
     }
 }

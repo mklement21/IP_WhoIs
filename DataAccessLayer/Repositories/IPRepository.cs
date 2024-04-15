@@ -2,6 +2,7 @@
 using Exceptions;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 
 namespace DataAccessLayer.Repositories {
     public class IPRepository : Repository<IpAdrese> {
@@ -59,6 +60,12 @@ namespace DataAccessLayer.Repositories {
             } else {
                 return 0;
             }
+        }
+
+        public IQueryable<IpAdrese> GetAddressFilter(string country) {
+            var query = from countries in Entities.Where( c => c.country.StartsWith(country))
+                        select countries;
+            return query;
         }
     }
 }
