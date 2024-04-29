@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="IP WHO IS" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
-    <DockPanel>
+    <DockPanel>                                     
         <Grid x:Name="navGrid" DockPanel.Dock="Left" Width="150" Background="PowderBlue">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -18,8 +19,10 @@
 
             <Label x:Name="lblNavigation" Content="Navigation" FontWeight="Bold" HorizontalContentAlignment="Center" Background="SteelBlue"  Height="25" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="0,0,1,0"></Label>
 
-            <Button x:Name="btnSearch" Content="Search" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="1" Click="btnSearch_Click"/>
-            <Button x:Name="btnSaved" Content="Saved" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2" Click="btnSaved_Click"/>
+            <WebBrowser x:Name="webBrowser" Margin="5,5,5,5" DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="1" Height="150" ClipToBounds="True" />
+
+            <Button x:Name="btnSearch" Content="Search" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2" Click="btnSearch_Click"/>
+            <Button x:Name="btnSaved" Content="Saved" Height="25" Background="PowderBlue" BorderBrush="SteelBlue" BorderThickness="0,0,0,1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="3" Click="btnSaved_Click"/>
         </Grid>
         <StackPanel x:Name="stackPanel" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Background="SteelBlue" Height="25">
             <Label x:Name="lblSearch"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
