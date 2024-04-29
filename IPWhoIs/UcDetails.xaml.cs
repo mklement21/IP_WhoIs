@@ -14,6 +14,15 @@ namespace IPWhoIs {
             Address = selectedAddress;
             LoadData();
             LoadFlagFromUrl();
+            IsFavorite();
+        }
+
+        private void IsFavorite() {
+            if (Address.favorite == true) {
+                btnFavorite.Content = "Remove from Favorite";
+            } else {
+                btnFavorite.Content = "Add to Favorite";
+            }
         }
 
         public async void LoadFlagFromUrl() {
@@ -75,21 +84,20 @@ namespace IPWhoIs {
         }
 
         private void btnFavorite_Click(object sender, RoutedEventArgs e) {
+            bool result;
             if (Address.favorite == true) {
                 Address.favorite = false;
-                bool result = IPService.UpdateAddress(Address);
-
-                if (result) {
-                    MessageBox.Show($"Address {Address.IP} successfully removed from favorites!");
-                }
+                result = IPService.UpdateAddress(Address);
             } else {
                 Address.favorite = true;
-                bool result = IPService.UpdateAddress(Address);
-
-                if (result) {
-                    MessageBox.Show($"Address {Address.IP} successfully added to favorites!");
-                }
+                result = IPService.UpdateAddress(Address);
             }
+
+            if (result) {
+                string text = result ? "added to" : "removed from";
+                MessageBox.Show($"Address {Address.IP} successfully {text} favorites!");
+            }
+            IsFavorite();
         }
     }
 }
