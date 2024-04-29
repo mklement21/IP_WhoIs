@@ -39,6 +39,8 @@ namespace DataAccessLayer.Repositories {
             } else return 0;
         }
 
+        public abstract int Update(T entity, bool saveChanges = true);
+
         public void Dispose() {
             Context.Dispose();
         }

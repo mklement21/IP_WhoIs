@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Entities;
 using Exceptions;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -73,9 +74,56 @@ namespace DataAccessLayer.Repositories {
         }
 
         public IQueryable<IpAdrese> GetByCountryDesc() {
-            var query = Entities.Select(c => c).OrderByDescending(c => c.favorite == true ? 0 : 1).ThenBy(c => c.country); ;
+            var query = Entities.Select(c => c).OrderBy(c => c.favorite == true ? 0 : 1).ThenByDescending(c => c.country); ;
             return query;
         }
 
+        public int AddFavorite(IpAdrese address, bool saveChanges = true) {
+            address.favorite = true;
+
+            if (saveChanges) {
+                return SaveChanges();
+            } else {
+                return 0;
+            }
+        }
+
+        public override int Update(IpAdrese entity, bool saveChanges = true) {
+            IpAdrese address = Entities.SingleOrDefault( a => a.IP == entity.IP);
+            address.success = entity.success;
+            address.type = entity.type;
+            address.continent = entity.continent;
+            address.continent_code = entity.continent_code;
+            address.country = entity.country;
+            address.country_code = entity.country_code;
+            address.country_flag = entity.country_flag;
+            address.country_capital = entity.country_capital;
+            address.country_phone = entity.country_phone;
+            address.country_neighbours = entity.country_neighbours;
+            address.region = entity.region;
+            address.city = entity.city;
+            address.latitude = entity.latitude;
+            address.longitude = entity.longitude;
+            address.asn = entity.asn;
+            address.org = entity.org;
+            address.isp = entity.isp;
+            address.timezone = entity.timezone;
+            address.timezone_name = entity.timezone_name;
+            address.timezone_dstOffset = entity.timezone_dstOffset;
+            address.timezone_gmtOffset = entity.timezone_gmtOffset;
+            address.timezone_gmt = entity.timezone_gmt;
+            address.currency = entity.currency;
+            address.currency_code = entity.currency_code;
+            address.currency_symbol = entity.currency_symbol;
+            address.currency_rates = entity.currency_rates;
+            address.currency_plural = entity.currency_plural;
+            address.favorite = entity.favorite;
+
+            if (saveChanges) {
+                return SaveChanges();
+            } else {
+                return 0;
+            }
+        }
     }
 }

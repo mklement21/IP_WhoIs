@@ -134,6 +134,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="25,0,200,0">
                     <Button x:Name="btnDelete" Content="Delete" Width="70" Height="30" Margin="2" Background="PowderBlue" Click="btnDelete_Click"/>
                     <Button x:Name="btnUpdate" Content="Update" Width="70" Height="30" Margin="2" Background="PowderBlue"/>
+                    <Button x:Name="btnFavorite" Content="Add to favorite" Width="90" Height="30" Margin="2" Background="PowderBlue" Click="btnFavorite_Click"/>
                 </StackPanel>
             </StackPanel>
 

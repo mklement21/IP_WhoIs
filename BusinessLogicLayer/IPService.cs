@@ -50,5 +50,14 @@ namespace BusinessLogicLayer {
                 return repo.GetByCountryDesc().ToList();
             }
         }
+
+        public bool UpdateAddress(IpAdrese address) {
+            bool isSuccessful = false;
+            using (var repo = new IPRepository()) {
+                int affectedRows = repo.Update(address);
+                isSuccessful = affectedRows > 0;
+            }
+            return isSuccessful;
+        }
     }
 }

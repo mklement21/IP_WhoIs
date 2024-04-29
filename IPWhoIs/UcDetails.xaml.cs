@@ -73,5 +73,23 @@ namespace IPWhoIs {
                 } 
             }
         }
+
+        private void btnFavorite_Click(object sender, RoutedEventArgs e) {
+            if (Address.favorite == true) {
+                Address.favorite = false;
+                bool result = IPService.UpdateAddress(Address);
+
+                if (result) {
+                    MessageBox.Show($"Address {Address.IP} successfully removed from favorites!");
+                }
+            } else {
+                Address.favorite = true;
+                bool result = IPService.UpdateAddress(Address);
+
+                if (result) {
+                    MessageBox.Show($"Address {Address.IP} successfully added to favorites!");
+                }
+            }
+        }
     }
 }
