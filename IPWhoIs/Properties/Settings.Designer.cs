@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IP_WhoIs.Properties {
+namespace IPWhoIs.Properties {
 
 
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

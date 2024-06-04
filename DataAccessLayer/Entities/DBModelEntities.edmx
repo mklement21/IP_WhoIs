@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBModelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IpAdrese">
+          <Key>
+            <PropertyRef Name="IP" />
+          </Key>
+          <Property Name="IP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="success" Type="bit" />
+          <Property Name="type" Type="varchar" MaxLength="20" />
+          <Property Name="continent" Type="varchar" MaxLength="30" />
+          <Property Name="continent_code" Type="char" MaxLength="2" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="country_code" Type="char" MaxLength="2" />
+          <Property Name="country_flag" Type="varchar" MaxLength="250" />
+          <Property Name="country_capital" Type="varchar" MaxLength="50" />
+          <Property Name="country_phone" Type="varchar" MaxLength="5" />
+          <Property Name="country_neighbours" Type="varchar" MaxLength="50" />
+          <Property Name="region" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="latitude" Type="float" />
+          <Property Name="longitude" Type="float" />
+          <Property Name="asn" Type="varchar" MaxLength="10" />
+          <Property Name="org" Type="varchar" MaxLength="100" />
+          <Property Name="isp" Type="varchar" MaxLength="100" />
+          <Property Name="timezone" Type="varchar" MaxLength="50" />
+          <Property Name="timezone_name" Type="varchar" MaxLength="10" />
+          <Property Name="timezone_dstOffset" Type="int" />
+          <Property Name="timezone_gmtOffset" Type="int" />
+          <Property Name="timezone_gmt" Type="varchar" MaxLength="10" />
+          <Property Name="currency" Type="varchar" MaxLength="50" />
+          <Property Name="currency_code" Type="char" MaxLength="3" />
+          <Property Name="currency_symbol" Type="varchar" MaxLength="5" />
+          <Property Name="currency_rates" Type="float" />
+          <Property Name="currency_plural" Type="varchar" MaxLength="25" />
+          <Property Name="favorite" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="DBModelModelStoreContainer">
+          <EntitySet Name="IpAdrese" EntityType="Self.IpAdrese" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IpAdrese">
+          <Key>
+            <PropertyRef Name="IP" />
+          </Key>
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="success" Type="Boolean" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="continent" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="continent_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country_code" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="country_flag" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="country_capital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country_phone" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="country_neighbours" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="Double" />
+          <Property Name="longitude" Type="Double" />
+          <Property Name="asn" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="org" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="timezone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="timezone_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="timezone_dstOffset" Type="Int32" />
+          <Property Name="timezone_gmtOffset" Type="Int32" />
+          <Property Name="timezone_gmt" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currency_code" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="currency_symbol" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="currency_rates" Type="Double" />
+          <Property Name="currency_plural" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="favorite" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="DBModelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IpAdrese" EntityType="Self.IpAdrese" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBModelModelStoreContainer" CdmEntityContainer="DBModelEntities">
+          <EntitySetMapping Name="IpAdrese">
+            <EntityTypeMapping TypeName="DBModelModel.IpAdrese">
+              <MappingFragment StoreEntitySet="IpAdrese">
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="success" ColumnName="success" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="continent" ColumnName="continent" />
+                <ScalarProperty Name="continent_code" ColumnName="continent_code" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="country_code" ColumnName="country_code" />
+                <ScalarProperty Name="country_flag" ColumnName="country_flag" />
+                <ScalarProperty Name="country_capital" ColumnName="country_capital" />
+                <ScalarProperty Name="country_phone" ColumnName="country_phone" />
+                <ScalarProperty Name="country_neighbours" ColumnName="country_neighbours" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="asn" ColumnName="asn" />
+                <ScalarProperty Name="org" ColumnName="org" />
+                <ScalarProperty Name="isp" ColumnName="isp" />
+                <ScalarProperty Name="timezone" ColumnName="timezone" />
+                <ScalarProperty Name="timezone_name" ColumnName="timezone_name" />
+                <ScalarProperty Name="timezone_dstOffset" ColumnName="timezone_dstOffset" />
+                <ScalarProperty Name="timezone_gmtOffset" ColumnName="timezone_gmtOffset" />
+                <ScalarProperty Name="timezone_gmt" ColumnName="timezone_gmt" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="currency_code" ColumnName="currency_code" />
+                <ScalarProperty Name="currency_symbol" ColumnName="currency_symbol" />
+                <ScalarProperty Name="currency_rates" ColumnName="currency_rates" />
+                <ScalarProperty Name="currency_plural" ColumnName="currency_plural" />
+                <ScalarProperty Name="favorite" ColumnName="favorite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
