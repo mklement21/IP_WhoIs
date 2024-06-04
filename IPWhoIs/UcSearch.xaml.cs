@@ -6,6 +6,7 @@ using System;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace IPWhoIs {
     public partial class UcSearch : UserControl {
@@ -20,7 +21,7 @@ namespace IPWhoIs {
 
             try {
                 using (HttpClient httpClient = new HttpClient()) {
-                    HttpResponseMessage response = await httpClient.GetAsync(urlAPI);
+                    HttpResponseMessage response = await httpClient.GetAsync("https://ipwhois.app/json/" + urlAPI);
 
                     if (response.IsSuccessStatusCode) {
                         string apiResponse = await response.Content.ReadAsStringAsync();
@@ -91,6 +92,22 @@ namespace IPWhoIs {
 
         private void btnSaveAddress_Click(object sender, RoutedEventArgs e) {
             ImportIP(jsonData);
+        }
+
+        private void RemovePlaceholder(object sender, RoutedEventArgs e) {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Foreground == Brushes.Gray) {
+                textBox.Text = "";
+                textBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void AddPlaceholder(object sender, RoutedEventArgs e) {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(textBox.Text)) {
+                textBox.Text = "Search";
+                textBox.Foreground = Brushes.Gray;
+            }
         }
     }
 }

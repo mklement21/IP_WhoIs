@@ -27,7 +27,8 @@
         </Grid.RowDefinitions>
 
         <Label Content="Search IP :" Grid.Column="0" Grid.Row="0" FontWeight="Bold" VerticalAlignment="Center"/>
-        <TextBox x:Name="txtSearch" Text="https://ipwhois.app/json/193.198.57.183" Grid.Column="1" Grid.Row="0" Margin="2" Width="400" BorderThickness="0.5"/>
+            <TextBox x:Name="txtSearch" Text="Search" Grid.Column="1" Grid.Row="0" Margin="2" Width="400" BorderThickness="0.5" Foreground="Gray"
+                GotFocus="RemovePlaceholder" LostFocus="AddPlaceholder"/>
             <Button x:Name="btnSearchIP" Content="Search"  Width="70" Height="30"  Background="PowderBlue"  Margin="20,0,2,0" Grid.Column="3" Grid.Row="0" Click="btnSearchIP_Click"></Button>
 
         <Label Content="Continent :" Grid.Column="0" Grid.Row="2" FontWeight="Bold" VerticalAlignment="Center" Margin="0,5,0,0"/>

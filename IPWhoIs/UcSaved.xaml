@@ -17,7 +17,7 @@
         </StackPanel>
 
 
-        <DataGrid x:Name="dgSavedAddresses" AlternatingRowBackground="AliceBlue" Margin="25,0,25,0" DockPanel.Dock="Top" AutoGenerateColumns="False" Height="500" RenderTransformOrigin="0.501,0.393">
+        <DataGrid x:Name="dgSavedAddresses" AlternatingRowBackground="AliceBlue" Margin="25,0,25,0" DockPanel.Dock="Top" AutoGenerateColumns="False" Height="500" RenderTransformOrigin="0.501,0.393" CanUserAddRows="False">
             <DataGrid.Columns >
                 <DataGridTextColumn Width="10*" Header="IP address" Binding="{Binding IP}" />
                 <DataGridTextColumn Width="10*" Header="Continent" Binding="{Binding continent}" />
