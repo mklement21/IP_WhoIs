@@ -7,6 +7,8 @@ using BusinessLogicLayer;
 
 namespace IPWhoIs {
     public partial class UcDetails : UserControl {
+        private const string ApiKey = "AIzaSyCzcBF_K96MrX_4vlP_7QOT9QVgPOhaJGc";
+
         private IpAdrese Address = new IpAdrese();
         private IPService IPService = new IPService();
         public UcDetails(IpAdrese  selectedAddress) {
