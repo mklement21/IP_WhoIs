@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.Windows;
 using BusinessLogicLayer;
+using System.Net;
 
 namespace IPWhoIs {
     public partial class UcDetails : UserControl {
@@ -17,6 +18,22 @@ namespace IPWhoIs {
             LoadData();
             LoadFlagFromUrl();
             IsFavorite();
+            LoadMap(selectedAddress.latitude, selectedAddress.longitude);
+        }
+
+        private  void LoadMap(double? latitude, double? longitude) {
+            if (latitude == null || longitude == null) {
+                MessageBox.Show("Invalid coordinates.");
+                return;
+            }
+
+            string url = $"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&zoom=10&size=600x400&key={ApiKey}";
+
+            try {
+                webBrowserMap.Source = new Uri(url);
+            } catch (Exception ex) {
+                MessageBox.Show($"Error loading map: {ex.Message}");
+            }
         }
 
         private void IsFavorite() {
