@@ -4,7 +4,9 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.Windows;
 using BusinessLogicLayer;
+using Microsoft.Win32;
 using System.Net;
+using System.IO;
 
 namespace IPWhoIs {
     public partial class UcDetails : UserControl {
@@ -12,7 +14,7 @@ namespace IPWhoIs {
 
         private IpAdrese Address = new IpAdrese();
         private IPService IPService = new IPService();
-        public UcDetails(IpAdrese  selectedAddress) {
+        public UcDetails(IpAdrese selectedAddress) {
             InitializeComponent();
             Address = selectedAddress;
             LoadData();
@@ -21,7 +23,7 @@ namespace IPWhoIs {
             LoadMap(selectedAddress.latitude, selectedAddress.longitude);
         }
 
-        private  void LoadMap(double? latitude, double? longitude) {
+        private void LoadMap(double? latitude, double? longitude) {
             if (latitude == null || longitude == null) {
                 MessageBox.Show("Invalid coordinates.");
                 return;
@@ -98,7 +100,7 @@ namespace IPWhoIs {
 
                     UcSaved ucSaved = new UcSaved();
                     this.Content = ucSaved;
-                } 
+                }
             }
         }
 
@@ -117,6 +119,26 @@ namespace IPWhoIs {
                 MessageBox.Show($"Address {Address.IP} successfully {text} favorites!");
             }
             IsFavorite();
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e) {
+            try {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                saveFileDialog.FileName = "IPAddress.txt";
+
+                if (saveFileDialog.ShowDialog() == true) {
+                    string filePath = saveFileDialog.FileName;
+
+                    using (StreamWriter streamWriter = new StreamWriter(filePath)) {
+                        streamWriter.WriteLine($"IP");
+                    }
+                    MessageBox.Show("Address details successfully exported to " + filePath);
+                }
+
+            } catch (Exception ex) {
+                MessageBox.Show($"Error exporting data: {ex.Message}");
+            }
         }
     }
 }
