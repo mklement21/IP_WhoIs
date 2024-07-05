@@ -129,11 +129,13 @@ namespace IPWhoIs {
 
                 if (saveFileDialog.ShowDialog() == true) {
                     string filePath = saveFileDialog.FileName;
+                    bool result = IPService.TxtExpotData(Address, filePath);
 
-                    using (StreamWriter streamWriter = new StreamWriter(filePath)) {
-                        streamWriter.WriteLine($"IP");
+                    if (result) {
+                        MessageBox.Show("Address details successfully exported to " + filePath);
+                    } else {
+                        MessageBox.Show("Failed to export address details.");
                     }
-                    MessageBox.Show("Address details successfully exported to " + filePath);
                 }
 
             } catch (Exception ex) {

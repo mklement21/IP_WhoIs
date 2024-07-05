@@ -59,5 +59,11 @@ namespace BusinessLogicLayer {
             }
             return isSuccessful;
         }
+
+        public bool TxtExpotData(IpAdrese address, string) {
+            bool isSuccessful = false;
+
+            return isSuccessful;
+        }
     }
 }
