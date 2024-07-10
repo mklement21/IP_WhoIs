@@ -9,7 +9,16 @@
     <ScrollViewer VerticalScrollBarVisibility="Visible">
         <DockPanel x:Name="dpDetailsAddress">
             <Label Content="Details" Background="PowderBlue" FontWeight="DemiBold"  HorizontalContentAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,25"></Label>
-            <WebBrowser x:Name="webBrowser" Height="480" Width="640" Margin="20,0,0,0" DockPanel.Dock="Left" />
+
+            <StackPanel Orientation="Vertical">
+                <Grid Margin="20,0,0,0" DockPanel.Dock="Left"  MaxHeight="480" MaxWidth="640" >
+                    <WebBrowser x:Name="webBrowser" MaxHeight="480" MaxWidth="640"  DockPanel.Dock="Left"  />
+                </Grid>
+
+                <Grid Margin="20,0,0,0" DockPanel.Dock="Left" MaxHeight="480" MaxWidth="640">
+                    <WebBrowser x:Name="webBrowserMap" MaxHeight="480" MaxWidth="640" DockPanel.Dock="Left"/>
+                </Grid>
+            </StackPanel>
 
             <StackPanel>
                 <Grid Margin="10,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Center" DockPanel.Dock="Right"  >
@@ -130,14 +139,12 @@
                     <TextBox x:Name="txtFavorite" Grid.Column="1" Grid.Row="26" Margin="2" IsReadOnly="True"/>
 
                 </Grid>
-
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="25,0,200,0">
                     <Button x:Name="btnDelete" Content="Delete" Width="70" Height="30" Margin="2" Background="PowderBlue" Click="btnDelete_Click"/>
-                    <Button x:Name="btnFavorite" Content="Add to favorite" Width="auto" Height="30" Margin="2" Background="PowderBlue" Click="btnFavorite_Click"/>
+                    <Button x:Name="btnFavorite" Content="Add to favorites" Width="auto" Height="30" Margin="2" Background="PowderBlue" Click="btnFavorite_Click"/>
+                    <Button x:Name="btnExport" Content="Export" Width="70" Height="30" Margin="2" Background="PowderBlue" Click="btnExport_Click"/>
                 </StackPanel>
             </StackPanel>
-
-
         </DockPanel>
     </ScrollViewer>
 </UserControl>

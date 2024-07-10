@@ -4,17 +4,38 @@ using System.Windows.Controls;
 using System.Net.Http;
 using System.Windows;
 using BusinessLogicLayer;
+using Microsoft.Win32;
+using System.Net;
+using System.IO;
 
 namespace IPWhoIs {
     public partial class UcDetails : UserControl {
+        private const string ApiKey = "AIzaSyCzcBF_K96MrX_4vlP_7QOT9QVgPOhaJGc";
+
         private IpAdrese Address = new IpAdrese();
         private IPService IPService = new IPService();
-        public UcDetails(IpAdrese  selectedAddress) {
+        public UcDetails(IpAdrese selectedAddress) {
             InitializeComponent();
             Address = selectedAddress;
             LoadData();
             LoadFlagFromUrl();
             IsFavorite();
+            LoadMap(selectedAddress.latitude, selectedAddress.longitude);
+        }
+
+        private void LoadMap(double? latitude, double? longitude) {
+            if (latitude == null || longitude == null) {
+                MessageBox.Show("Invalid coordinates.");
+                return;
+            }
+
+            string url = $"https://maps.googleapis.com/maps/api/staticmap?center={latitude},{longitude}&zoom=10&size=600x400&key={ApiKey}";
+
+            try {
+                webBrowserMap.Source = new Uri(url);
+            } catch (Exception ex) {
+                MessageBox.Show($"Error loading map: {ex.Message}");
+            }
         }
 
         private void IsFavorite() {
@@ -79,7 +100,7 @@ namespace IPWhoIs {
 
                     UcSaved ucSaved = new UcSaved();
                     this.Content = ucSaved;
-                } 
+                }
             }
         }
 
@@ -98,6 +119,28 @@ namespace IPWhoIs {
                 MessageBox.Show($"Address {Address.IP} successfully {text} favorites!");
             }
             IsFavorite();
+        }
+
+        private void btnExport_Click(object sender, RoutedEventArgs e) {
+            try {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Text file (*.txt)|*.txt";
+                saveFileDialog.FileName = "IPAddress.txt";
+
+                if (saveFileDialog.ShowDialog() == true) {
+                    string filePath = saveFileDialog.FileName;
+                    bool result = IPService.TxtExpotData(Address, filePath);
+
+                    if (result) {
+                        MessageBox.Show("Address details successfully exported to " + filePath);
+                    } else {
+                        MessageBox.Show("Failed to export address details.");
+                    }
+                }
+
+            } catch (Exception ex) {
+                MessageBox.Show($"Error exporting data: {ex.Message}");
+            }
         }
     }
 }
